@@ -1,4 +1,4 @@
-import minimatch from 'minimatch'
+import * as minimatch from 'minimatch'
 import 'core-js/fn/array/find'
 
 export class Permissions {
@@ -9,11 +9,11 @@ export class Permissions {
     }
 
     match(pattern) {
-        const permissionList = this.getPermissionList().slice();
+        const permissionList = this.getPermissionList().slice()
 
         return Boolean(
-            permissionList.find((permission) => minimatch(pattern, permission))
-        );
+            permissionList.find((permission) => minimatch(permission, pattern))
+        )
     }
 }
 
@@ -22,23 +22,30 @@ export type PermissionsConfig = {
 }
 
 export class Authorization {
-    private neededPermissions: Permission[]
-    private rules: Rule[]
+    private neededPermissions: Permission[] = []
+    private rules: Rule[] = []
     private onError: Function
 
     constructor({ onError }: AuthorizationConfig = {}) {
-        this.onError = this.onError || (() => {
+        this.onError = onError || (() => {
             throw new Error('Unauthorized')
         })
     }
 
-    needs(permission: Permission): Authorization {
-        this.neededPermissions.push(permission)
+    needs(pattern: string): Authorization {
+        this.neededPermissions.push({
+            pattern,
+        })
+
         return this
     }
 
-    has(rule: Rule): Authorization {
-        this.rules.push(rule)
+    has(pattern: string, condition: () => boolean): Authorization {
+        this.rules.push({
+            pattern,
+            condition,
+        })
+
         return this
     }
 

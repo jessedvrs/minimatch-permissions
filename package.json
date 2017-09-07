@@ -28,6 +28,7 @@
     "typescript": "^2.5.2"
   },
   "dependencies": {
+    "@types/node": "^8.0.27",
     "core-js": "^2.5.1",
     "minimatch": "^3.0.4"
   }
