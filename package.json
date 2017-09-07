@@ -1,0 +1,33 @@
+{
+  "name": "minimatch-permissions",
+  "version": "0.1.0",
+  "description": "Grant permissions and use minimatch to match them",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "rm -rf dist && tsc",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessedvrs/minimatch-permissions.git"
+  },
+  "keywords": [
+    "minimatch",
+    "permissions",
+    "restrictions"
+  ],
+  "author": "Jesse de Vries",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jessedvrs/minimatch-permissions/issues"
+  },
+  "homepage": "https://github.com/jessedvrs/minimatch-permissions#readme",
+  "devDependencies": {
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "core-js": "^2.5.1",
+    "minimatch": "^3.0.4"
+  }
+}
