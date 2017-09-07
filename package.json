@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Grant permissions and use minimatch to match them",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "compile": "rm -rf dist && tsc",
     "prepublish": "npm run compile"

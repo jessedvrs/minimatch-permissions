@@ -17,7 +17,7 @@ export class Permissions {
     }
 }
 
-type PermissionsConfig = {
+export type PermissionsConfig = {
     grant: Array<string>
 }
 
@@ -66,15 +66,15 @@ export class Authorization {
     }
 }
 
-type AuthorizationConfig = {
+export type AuthorizationConfig = {
     onError?: () => void
 }
 
-type Permission = {
+export type Permission = {
     pattern: string
 }
 
-type Rule = {
+export type Rule = {
     pattern: string
     condition: () => boolean
 }
